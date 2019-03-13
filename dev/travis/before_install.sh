@@ -19,6 +19,7 @@ phpenv rehash;
 
 # If env var is present, configure support for 3rd party builds which include private dependencies
 test -n "$GITHUB_TOKEN" && composer config github-oauth.github.com "$GITHUB_TOKEN" || true
+test -n "$MAGE_COMPOSER_USER" && composer config http-basic.repo.magento.com "$MAGE_COMPOSER_USER" "$MAGE_COMPOSER_KEY" || true
 
 # Node.js setup via NVM
 if [ $TEST_SUITE == "js" ]; then
