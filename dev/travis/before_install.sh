@@ -7,7 +7,7 @@ set -e
 trap '>&2 echo Error: Command \`$BASH_COMMAND\` on line $LINENO failed with exit code $?' ERR
 
 # mock mail
-sudo service postfix stop > /dev/null 2>&1
+#sudo service postfix stop > /dev/null 2>&1
 echo # print a newline
 smtp-sink -d "%d.%H.%M.%S" localhost:2500 1000 &
 echo 'sendmail_path = "/usr/sbin/sendmail -t -i "' > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/sendmail.ini
